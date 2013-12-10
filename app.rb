@@ -71,7 +71,8 @@ get '/write' do
 end
 
 get '/read/:file' do
-
+    cache_control :private, :no_cache, :no_store
+    
     # make sure the user authorized with Drobox
     redirect '/login' unless session[:dropbox] 
     
@@ -89,7 +90,7 @@ get '/read/:file' do
 end
 
 post '/write' do
-
+    cache_control :private, :no_cache, :no_store
     # make sure the user authorized with Drobox
     redirect '/login' unless session[:dropbox] 
     
